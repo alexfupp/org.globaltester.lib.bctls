@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bc
+Bundle-SymbolicName: org.globaltester.lib.bctls
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: lib/bctls-jdk15on-158.jar,
+ lib/bcprov-jdk15on-158.jar
+Export-Package: org.bouncycastle.crypto.params,
+ org.bouncycastle.tls,
+ org.bouncycastle.tls.crypto,
+ org.bouncycastle.tls.crypto.impl,
+ org.bouncycastle.tls.crypto.impl.bc,
+ org.bouncycastle.tls.crypto.impl.jcajce,
+ org.bouncycastle.tls.crypto.impl.jcajce.srp
