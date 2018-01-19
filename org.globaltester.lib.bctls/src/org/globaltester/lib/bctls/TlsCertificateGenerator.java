@@ -8,8 +8,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -43,15 +41,25 @@ public class TlsCertificateGenerator {
 	}
 
 	public static Certificate generateTlsCertificate(KeyPair keypair) {
+		Calendar calendar = Calendar.getInstance();
+		Date effective = calendar.getTime();
+		
+		calendar.setTime(effective);
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)+10);
+		System.out.println(calendar.getTime());
+		Date expiry = calendar.getTime();
+		
+		return generateTlsCertificate(keypair, effective, expiry);
+	}
+
+	public static Certificate generateTlsCertificate(KeyPair keypair, Date effectiveDate, Date expiryDate) {
 		try {
 			X500Name subject = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, "PersoSim").build();
 			byte[] id = new byte[16];
 			random.nextBytes(id);
 			BigInteger serial = new BigInteger(160, random);
 			X509v3CertificateBuilder certificate = new JcaX509v3CertificateBuilder(subject, serial,
-					Calendar.getInstance().getTime(),
-					Date.from(LocalDate.of(2030, 1, 1).atStartOfDay(ZoneOffset.UTC).toInstant()), subject,
-					keypair.getPublic());
+					effectiveDate, expiryDate, subject, keypair.getPublic());
 			certificate.addExtension(Extension.subjectKeyIdentifier, false, id);
 			certificate.addExtension(Extension.authorityKeyIdentifier, false, id);
 			BasicConstraints constraints = new BasicConstraints(true);
