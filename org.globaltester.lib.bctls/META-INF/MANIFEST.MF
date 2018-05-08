@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Bc
+Bundle-Name: BouncyCastle TLS Library
 Bundle-SymbolicName: org.globaltester.lib.bctls
-Bundle-Version: 3.2.3.qualifier
+Bundle-Version: 3.2.4.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: lib/bcprov-jdk15on-159.jar,
  lib/bcpkix-jdk15on-159.jar,
