@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: BouncyCastle TLS Library
+Bundle-Name: GT Lib TLS (BouncyCastle)
 Bundle-SymbolicName: org.globaltester.lib.bctls
 Bundle-Vendor: secunet Security Networks AG
 Bundle-Version: 3.2.4.qualifier
