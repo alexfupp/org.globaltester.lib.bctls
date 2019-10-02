@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: GT Lib TLS (BouncyCastle)
 Bundle-SymbolicName: org.globaltester.lib.bctls
 Bundle-Vendor: secunet Security Networks AG
-Bundle-Version: 3.5.1.qualifier
+Bundle-Version: 3.5.2.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: lib/bcprov-jdk15on-159.jar,
  lib/bcpkix-jdk15on-159.jar,
